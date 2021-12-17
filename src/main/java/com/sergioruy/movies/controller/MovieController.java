@@ -19,6 +19,10 @@ public class MovieController {
     @GetMapping("/{code}")
     public ResponseEntity<Movie> listMovie(@PathVariable Long code) {
 
+        if (code < 0) {
+            return ResponseEntity.badRequest().build();
+        }
+
         Movie movie = this.movieService.getMovie(code);
 
         if (movie == null) {
