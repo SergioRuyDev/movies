@@ -16,8 +16,8 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    @GetMapping("/code")
-    public ResponseEntity<Movie> getMovie(@PathVariable Long code) {
+    @GetMapping("/{code}")
+    public ResponseEntity<Movie> listMovie(@PathVariable Long code) {
 
         Movie movie = this.movieService.getMovie(code);
 
